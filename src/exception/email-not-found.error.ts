@@ -1,4 +1,4 @@
-import { HttpException, NotFoundException } from '@nestjs/common';
+import { NotFoundException } from '@nestjs/common';
 
 export class EmailNotFoundError extends NotFoundException {
   constructor(email: string) {

@@ -6,16 +6,16 @@ import { PasswordInvalidError } from '../../exception/password-invalid.error';
 import { UserRepository } from '../../repository/user.repository';
 
 @Injectable()
-export class LoginService {
+export class LoginCmd {
   constructor(
     private readonly tokenFactory: TokenFactory,
-    private readonly hashGenerator: HashFactory,
+    private readonly hashFactory: HashFactory,
     private readonly userRepository: UserRepository,
   ) {}
 
   async invoke(request: LoginRequest) {
     const user = await this.userRepository.requireById(request.email);
-    const passwordHash = this.hashGenerator.create(request.password);
+    const passwordHash = this.hashFactory.create(request.password);
     if (user.passwordHash != passwordHash) throw new PasswordInvalidError();
 
     return await this.tokenFactory.create(user);

@@ -8,7 +8,7 @@ import { PasswordNotMatchError } from '../../exception/password-not-match.error'
 import { TokenFactory } from '../../component/factory/token.factory';
 
 @Injectable()
-export class ChangePasswordService {
+export class ChangePasswordCmd {
   constructor(
     readonly userRepo: UserRepository,
     readonly hashFactory: HashFactory,

@@ -3,7 +3,7 @@ import { UserDto } from '../../model/user.dto';
 import { UserRepository } from '../../repository/user.repository';
 
 @Injectable()
-export class GetUserService {
+export class GetUserCmd {
   constructor(readonly userRepo: UserRepository) {}
 
   async invoke(email: string): Promise<UserDto> {

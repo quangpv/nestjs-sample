@@ -1,5 +1,9 @@
-import { UserEntity } from './entity/user.entity';
+import { Role } from './type/user-role.type';
 
 export class TokenUserPayload {
-  constructor(signedUser: UserEntity) {}
+  constructor(
+    readonly email: string,
+    readonly role: Role,
+    readonly expiresIn: number,
+  ) {}
 }
